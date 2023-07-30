@@ -34,8 +34,6 @@ After building the application, you can also run it from the Java CLI:
 java -jar build/libs/catalog-service-0.0.1-SNAPSHOT.jar
 ```
 ## Database Setup
-![img.png](img.png)
-![img_1.png](img_1.png)
 ### Container Commands
 **PowerShell**
 ```shell
@@ -84,3 +82,8 @@ From within the PSQL console, you can also fetch all the data stored in the `boo
 ```bash
 select * from book;
 ```
+### Database Infrastructure
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
