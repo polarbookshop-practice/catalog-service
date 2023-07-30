@@ -6,3 +6,16 @@ server:
     threads:
       max: 50
       min-spare: 5
+spring:
+  application:
+    name: catalog-service
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888
+      request-connect-timeout: 5000 # 5 seconds Timeout on waiting to connect to the config server (ms)
+      request-read-timeout: 5000 # 5 seconds Timeout on waiting to read configuration data from the config server (ms)
+
+polar:
+  greeting: Welcome to the local book catalog!

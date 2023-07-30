@@ -3,21 +3,21 @@ on: push
 
 jobs:
   build:
-    name: Build and Test
-    runs-on: ubuntu-22.04
+    name: Build and Test # The name of the job
+    runs-on: ubuntu-22.04 # The type of machine to run the job on
     permissions:
-      contents: read
-      security-events: write
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v3
-      - name: Set up JDK
-        uses: actions/setup-java@v3
+      contents: read # The job requires read access to the repository
+      security-events: write # The job requires write access to security events
+    steps: # The steps to run on the job
+      - name: Checkout source code # The name of the step
+        uses: actions/checkout@v3 # The type of action to run
+      - name: Set up JDK 17 # The name of the step
+        uses: actions/setup-java@v3 # The type of action to run
         with:
           distribution: temurin
           java-version: 17
           cache: gradle
-      - name: Build, unit tests and integration tests
+      - name: Build, unit tests and integration tests # The name of the step
         run: |
           chmod +x gradlew
           ./gradlew build
