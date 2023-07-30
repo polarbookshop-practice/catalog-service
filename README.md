@@ -83,7 +83,7 @@ From within the PSQL console, you can also fetch all the data stored in the `boo
 select * from book;
 ```
 ### Database Infrastructure
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
+![img.png](assets/img.png)
+![img_1.png](assets/img_1.png)
+![img_2.png](assets/img_2.png)
+![img_3.png](assets/img_3.png)

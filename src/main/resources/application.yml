@@ -24,6 +24,15 @@ spring:
           initial-interval: 1000 # 1 second Initial interval between attempts to connect to the config server (ms)
           max-interval: 2000 # 2 seconds Maximum interval between attempts to connect to the config server (ms)
           multiplier: 1.1 # Multiplier to apply to the previous interval between attempts to connect to the config server
+  # The following are the default settings for the data source
+  datasource:
+    username: user
+    password: password
+    url: jdbc:postgresql://localhost:5432/polardb_catalog # The name of the database is polardb_catalog
+    hikari:
+      connection-timeout: 2000 # 2 seconds Timeout for connecting to the database (ms)
+      maximum-pool-size: 5 # Maximum number of connections in the pool
+
 # The following are the default settings for the config client
 management:
   endpoints:  # Expose the /refresh endpoint
