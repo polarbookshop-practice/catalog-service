@@ -4,6 +4,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: polarbookshop-practice/catalog-service
   VERSION: latest
+
 jobs:
   build:
     name: Build and Test # The name of the job
