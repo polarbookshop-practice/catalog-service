@@ -104,3 +104,7 @@ select * from book;
     -PregistryUsername=<your_github_username> `
     -PregistryToken=<your_github_token
 ```
+
+# Deployment pipeline
+## Packages and publishing
+![img.png](assets/pipeline-1.png)
