@@ -87,3 +87,20 @@ select * from book;
 ![img_1.png](assets/img_1.png)
 ![img_2.png](assets/img_2.png)
 ![img_3.png](assets/img_3.png)
+
+# Docker infrastructure
+![img.png](assets/docker-1.png)
+![img.png](assets/docker-2.png)
+![img.png](assets/docker-3.png)
+![img.png](assets/docker-4.png)
+![img.png](assets/docker-5.png)
+
+## Build and push image to github repository
+```shell
+./gradlew bootBuildImage `
+    --imageName ghcr.io/<your_github_username>/catalog-service `
+    --publishImage `
+    -PregistryUrl=ghcr.io `
+    -PregistryUsername=<your_github_username> `
+    -PregistryToken=<your_github_token
+```
