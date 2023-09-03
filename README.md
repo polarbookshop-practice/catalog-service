@@ -108,3 +108,44 @@ select * from book;
 # Deployment pipeline
 ## Packages and publishing
 ![img.png](assets/pipeline-1.png)
+## Validating Kubernetes manifests in the commit stage
+![img.png](assets/pipeline-2.png)
+```shell
+kubeval --strict -d k8s
+```
+
+# Kubernetes fundamentals
+![img.png](assets/kubernetes-1.png)
+![img.png](assets/kubernetes-2.png)
+![img.png](assets/kubernetes-3.png)
+![img.png](assets/kubernetest-4.png)
+![img.png](assets/kubernetes-5.png)
+## Start minikube
+```shell
+minikube start --cpus 2 --memory 4g --driver docker --profile polar
+kubectl get nodes
+kubectl config get-contexts
+minikube stop --profile polar
+```
+```bash
+## How to deploy to Kubernetes locally
+```bash
+./gradlew bootBuildImage \
+minikube image load catalog-service --profile polar \
+kubectl apply -f k8s/deployment.yml \
+kubectl get all -l app=catalog-service \
+kubectl logs deployment/catalog-service \
+```
+## Service discovery and load balancing
+![img.png](assets/kubernetes-6.png)
+![img.png](assets/kubernetes-7.png)
+![img.png](assets/kubernetes-8.png)
+![img_1.png](assets/kubernetes-9.png)
+![img.png](assets/kubernetes-10.png)
+![img.png](assets/kubernetes-11.png)
+### CREATING A SERVICE OBJECT FROM A MANIFEST
+```bash
+kubectl apply -f k8s/service.yml \
+kubectl get svc -l app=catalog-service \
+kubectl port-forward service/catalog-service 9001:80
+```
