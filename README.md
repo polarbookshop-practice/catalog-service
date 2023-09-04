@@ -123,6 +123,12 @@ kubeval --strict -d k8s
 ## Start minikube
 ```shell
 minikube start --cpus 2 --memory 4g --driver docker --profile polar
+minikube addons enable ingress --profile polar
+minikube tunnel --profile polar
+minikube stop --profile polar
+minikube delete --profile polar
+kubectl get all -n ingress-nginx
+kubectl get ingress
 kubectl get nodes
 kubectl config get-contexts
 minikube stop --profile polar
