@@ -27,6 +27,11 @@ spring:
           initial-interval: 1000 # 1 second Initial interval between attempts to connect to the config server (ms)
           max-interval: 2000 # 2 seconds Maximum interval between attempts to connect to the config server (ms)
           multiplier: 1.1 # Multiplier to apply to the previous interval between attempts to connect to the config server
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/PolarBookshop # The issuer URI of the Keycloak server
   # The following are the default settings for the data source
   datasource:
     username: user
