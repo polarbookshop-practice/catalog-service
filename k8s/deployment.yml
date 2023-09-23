@@ -13,6 +13,10 @@ spec:
     metadata:
       labels:
         app: catalog-service
+      annotation:
+        prometheus.io/scrape: "true" # Signals that Prometheus should scrape containers in this pod
+        prometheus.io/path: /actuator/prometheus # Identifies the HTTP endpoint that exposes metrics
+        prometheus.io/port: "9001" # Specifies the port number where the metrics endpoint is available
     spec:
       containers:
         - name: catalog-service
@@ -35,3 +39,16 @@ spec:
               value: testdata
             - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
               value: http://polar-keycloak/realms/PolarBookshop
+            - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 9001
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 9001
+            initialDelaySeconds: 5
+            periodSeconds: 15

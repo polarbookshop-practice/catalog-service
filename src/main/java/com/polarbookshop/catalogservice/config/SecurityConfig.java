@@ -18,6 +18,7 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests(authorize -> authorize
+                        .mvcMatchers("/actuator/**").permitAll()
                         // Allow users to fetch greeting and books without being authenticated
                         .mvcMatchers(HttpMethod.GET, "/", "/books/**").permitAll()
                         // Any other request requires not only authentication
